@@ -13,7 +13,7 @@ Pull the projects and practice and try to make them to sharp your skills.
 
 javac readstudentfile.java
 
-2-Then this will compile the prograam and create a .class file with the name of the class you have given.
+2-Then this will compile the program and create a .class file with the name of the class you have given.
 
 then run that with
 
@@ -22,6 +22,6 @@ java readstudent.class
 
 ****NOTE*************
 
-You can also use a ide like vs code to run it directly.
+You can also use a ide like VScode to run it directly.
 
 
