@@ -1,4 +1,4 @@
-# java
+# Java
 Java related projects and also a begginer level projects.
 
 ******INTRODUCTION*************
