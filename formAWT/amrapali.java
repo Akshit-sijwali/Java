@@ -42,6 +42,16 @@ class form extends Frame{
         phone_number.setBounds(200, 345, 100, 30);
         Submit.setBounds(200, 485, 80, 40);
 
+        CheckboxGroup cbg = new CheckboxGroup();
+        Checkbox male = new Checkbox("Male",cbg,false);
+        Checkbox female = new Checkbox("Female",cbg,false);
+
+        Label Gender = new Label("SELECT GENDER");
+        Gender.setBounds(200, 385, 1000, 20);
+        male.setBounds(200, 415, 60, 20);
+        female.setBounds(290, 415, 60, 20);
+
+        // Event handling
         Submit.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent e){
                 String getfirstname = firstname.getText();
@@ -57,6 +67,16 @@ class form extends Frame{
             
             }
         });
+
+        
+
+        // window closing
+        addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e){
+                // dispose();
+                System.exit(-1);
+            }
+        });
         
         add(label_title);
         add(label_firstname);
@@ -67,6 +87,9 @@ class form extends Frame{
         add(email);
         add(label_lphone);
         add(phone_number);
+        add(Gender);
+        add(male);
+        add(female);
         add(Submit);
 
         resize(600,600);
