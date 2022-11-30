@@ -1,15 +1,22 @@
 import javax.swing.*;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.*;
 
 class setup extends JFrame{
+     int width,length,preX,preY;
+     String Drawing;
     setup(){
         // creating side panel
+        JPanel drawpanel = new JPanel();
         JPanel sp = new JPanel();
+
+        drawpanel.setBounds(100, 0, 1000, 500);
+        drawpanel.setBackground(Color.WHITE);
+
         sp.setBounds(0, 0, 100, 500);
         sp.setBackground(Color.GRAY);
+        add(drawpanel);
         add(sp);
 
         // creating buttons 
@@ -34,18 +41,38 @@ class setup extends JFrame{
 
         Circle.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent e){
-                Graphics g = getGraphics();
-                g.drawOval(290,300,50,60);
-                // System.out.println(getX()+" "+getY());
+                Drawing = "Circle";
             }
         });
 
         Rectangle.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent e){
-                Graphics g = getGraphics();
-                g.drawRect(200, 130, 30, 20);
+                Drawing = "Rectangle";
             }
         });
+
+        drawpanel.addMouseListener(new MouseAdapter(){
+            public void mousePressed(MouseEvent e){
+                System.out.println(e.getX()+" "+e.getY());
+                preX = e.getX();
+                preY = e.getY();
+            }
+
+            public void mouseReleased(MouseEvent e){
+                width = e.getX() - preX;
+                length = e.getY() - preY;
+                System.out.println(e.getX()+" "+e.getY());
+                Graphics g = getGraphics();
+                if(Drawing == "Circle"){
+                    g.drawOval(preX,preY,width,length);
+                }
+                else if(Drawing == "Rectangle"){
+                    g.drawRect(preX, preY, width, length);
+                }
+            }
+        });
+
+        
 
 
         setLayout(null);
